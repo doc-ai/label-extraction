@@ -36,15 +36,15 @@ def FrameCapture(path):
 
         # vidObj object calls read
         # function extract frames
-        if count % 10 == 0:
+        if count % 60 == 0:
             success, image = vidObj.read()
             src_path = "images/demo/"
             # Saves the frames with frame-count
-            cv2.imwrite( src_path + "frame%d.jpg" % count, image)
+            cv2.imwrite( src_path + "frame%d.jpg" % count/60, image)
 
         count += 1
 
-FrameCapture(args["video"])
+#FrameCapture(args["video"])
 
 
 # grab the paths to the input images and initialize our images list
