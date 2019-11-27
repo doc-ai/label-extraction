@@ -44,7 +44,7 @@ def FrameCapture(path):
 
         count += 1
 
-#FrameCapture(args["video"])
+FrameCapture(args["video"])
 
 
 # grab the paths to the input images and initialize our images list
