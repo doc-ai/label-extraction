@@ -11,7 +11,7 @@ import cv2
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-v", "--video", type=str, required=False, help="path to input video to stitch")
+ap.add_argument("-v", "--video", type=str, required=True, help="path to input video to stitch")
 ap.add_argument("-i", "--images", type=str, required=True,
 	help="path to input directory of images to stitch")
 ap.add_argument("-o", "--output", type=str, required=True,
@@ -36,10 +36,11 @@ def FrameCapture(path):
 
         # vidObj object calls read
         # function extract frames
-        success, image = vidObj.read()
-        src_path = "images/demo/"
-        # Saves the frames with frame-count
-        cv2.imwrite( src_path + "frame%d.jpg" % count, image)
+        if count % 10 == 0:
+            success, image = vidObj.read()
+            src_path = "images/demo/"
+            # Saves the frames with frame-count
+            cv2.imwrite( src_path + "frame%d.jpg" % count, image)
 
         count += 1
 
